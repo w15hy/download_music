@@ -25,6 +25,7 @@ Make sure you have installed:
 - FFmpeg
 - python-dotenv
 - AcoustID API KEY
+- chromaprint
 
 Install dependencies:
 
