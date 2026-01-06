@@ -19,9 +19,15 @@ def nav_fingerprints(
     arr_artist: list[str],
     n: int,
 ) -> str:
+
+    if arr_title[0] is None or arr_title is None:
+        return None
+
     print(f"[{n}] Title:  {arr_title[n]}")
     print(f"{' '*3} Artist: {arr_artist[n]}")
     print(f"{' '*3} Score:  {arr_score[n]:.3f}")
+
+
 
     state = n
     k = readkey()
@@ -47,12 +53,14 @@ def fingerprint(file: str):
         arr_title.append(title)
         arr_artist.append(artist)
 
-    return nav_fingerprints(arr_score, arr_recording_id, arr_title, arr_artist, 0)
-
+    if arr_score:
+        return nav_fingerprints(arr_score, arr_recording_id, arr_title, arr_artist, 0)
+    else:
+        return None
 
 def test():
     print(
-        fingerprint("/home/w15hy/Music/Avenged_Sevenfold_-_Hail_to_the_King_Ragnar.mp3")
+        fingerprint("/home/w15hy/Music/Los_Enanitos_Verdes_-_Tu_Carcel_Lyrics.mp3")
     )
 
 

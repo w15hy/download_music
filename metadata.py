@@ -8,22 +8,30 @@ musicbrainzngs.set_useragent("metadata", "0.1", "fingerprint@gmail.com")
 
 
 def metadata(id: str, file: str):
-    recording = musicbrainzngs.get_recording_by_id(
-        id, includes=["artists", "releases"]
-    )["recording"]
+    if id:
+        recording = musicbrainzngs.get_recording_by_id(
+            id, includes=["artists", "releases"]
+        )["recording"]
 
-    if recording is not None or "":
-        info = get_metadata1(recording)
+        if recording is not None or "":
+            info = get_metadata1(recording)
+        else:
+            info = get_metadata2()
+
+        return set_metadata(*info, file)  # pyright: ignore
     else:
         info = get_metadata2()
-
-    return set_metadata(*info, file)  # pyright: ignore
-
+        return set_metadata(*info, file)  # pyright: ignore
 
 def get_album_official(recording: dict) -> str | None:
     for release in recording["release-list"]:
-        if release["status"].lower() == "official":
-            album = release["title"]
+        try:
+            if release["status"].lower() == "official":
+                album = release["title"]
+                return album
+        except:
+            print("Error getting the official album, please select the album manually")
+            album = input("Album: ")
             return album
     return None
 
