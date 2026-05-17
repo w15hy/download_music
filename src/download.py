@@ -19,14 +19,14 @@ if not os.path.isdir(out_dir):
 
 def build_ydl_opts(out_dir: str) -> dict:
     return {
-        "no_warnings": True,
+        # "no_warnings": True,
         "format": "bestaudio/best",
         "restrictfilenames": True,
         "writethumbnail": True,
         "outtmpl": os.path.join(out_dir, "%(title)s.%(ext)s"),
-        "quiet": True,
+        # "quiet": True,
         "noplaylist": True,  # Download only one video if playlist
-        "cookiesfrombrowser": ("firefox", None, None, None),
+        # "cookiesfrombrowser": ("firefox", None, None, None),
         # Extract audio and thumbnail using ffmpeg
         "postprocessors": [
             {

@@ -1,0 +1,16 @@
+[project]
+name = "download_music"
+version = "0.1.0"
+description = "Download music from youtube"
+dependencies = [
+    "yt_dlp",
+    "dotenv",
+    "pyacoustid",
+    "readchar",
+    "eyed3",
+    "musicbrainzngs"
+
+]
+
+[project.scripts]
+run = "main:main"
