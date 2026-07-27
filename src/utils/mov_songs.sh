@@ -1,8 +1,8 @@
 #!/bin/bash
 
-original_dir="/home/w15hy/Music/"
-new_dir="/run/user/1000/gvfs/mtp:host=OPPO_CPH2577_ORAEBMON7DTGX445/Internal shared storage/Music/"
-outfile="/home/w15hy/Projects/download_music/utils/pass.txt"
+original_dir="/home/w15hy/music/"
+new_dir="/run/user/1000/gvfs/mtp:host=OPPO_CPH2577_ORAEBMON7DTGX445/Внутренняя память/Music/"
+outfile="/home/w15hy/projects/download_music/src/utils/pass.txt"
 
 {
     ls -1 "$original_dir"
